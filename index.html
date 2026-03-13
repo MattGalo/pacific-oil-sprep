@@ -110,6 +110,60 @@ body.lang-en p.lfr,body.lang-en div.lfr{display:none !important}
     rgba(7,30,61,.88) 100%
   );
 }
+@media (max-width: 768px) {
+  .hero-overlay{
+    background:linear-gradient(
+      to bottom,
+      rgba(7,30,61,.45) 0%,
+      rgba(7,30,61,.30) 30%,
+      rgba(7,30,61,.45) 60%,
+      rgba(7,30,61,.82) 82%,
+      rgba(7,30,61,.92) 100%
+    );
+  }
+  .hero-content{
+    margin-bottom:4vh;
+    padding-top:72px;
+  }
+  /* Regulatory table → card layout on mobile */
+  .rt thead { display:none; }
+  .rt, .rt tbody, .rt tr, .rt td { display:block; width:100%; }
+  .rt tr {
+    background:var(--light);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    margin-bottom:12px;
+    padding:14px 16px;
+    text-align:left;
+  }
+  .rt tr:last-child td { border-bottom:1px solid var(--rule); }
+  .rt td {
+    padding:4px 0;
+    border:none;
+    font-size:14px;
+    text-align:left;
+  }
+  .rt td:first-child {
+    font-weight:700;
+    font-size:15px;
+    color:var(--dark);
+    margin-bottom:4px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:8px;
+  }
+  .rt td::before {
+    content: attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:3px;
+  }
+  .rt td:first-child::before { content:''; }
+}
 .hero-content{
   position:relative;z-index:2;
   width:100%;max-width:1100px;
@@ -328,7 +382,12 @@ footer{
 }
 @media(max-width:440px){
   .stats{grid-template-columns:1fr}
-  .hero-meta{gap:16px}
+  .hero-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 16px;
+  }
+  .hm-val{font-size:14px}
 }
 
 .pr-text,.pw-desc,.scope-note,.sec-intro,
@@ -532,8 +591,8 @@ td span,.table-intro,.map-note,
       <span class="lfr">Mouvements transfrontaliers : voie par territoire</span>
     </h2>
     <p>
-      <span class="len">The legal pathway for transboundary movements of used oil to New Caledonia is established for each territory. The key distinction: the Waigani Convention prohibits hazardous waste <em>imports into</em> Forum Island Countries; it does not restrict <em>exports from</em> them to non-FIC territories such as New Caledonia.</span>
-      <span class="lfr">La voie juridique pour les mouvements transfrontaliers d'huiles usagées vers la Nouvelle-Calédonie est établie pour chaque territoire. La distinction clé : la Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires ; elle ne restreint pas les exports <em>depuis</em> ceux-ci vers des territoires non-FIC comme la Nouvelle-Calédonie.</span>
+      <span class="len">The legal pathway for transboundary movements of used oil to New Caledonia has been identified for each territory, at varying stages of progress. The primary constraint is New Caledonia itself: PTOM status currently prohibits hazardous waste imports, liftable through an R9 recovery authorisation whose legal basis is established under EU Waste Framework Directive Art. 21. For island territories, the key distinction: the Waigani Convention prohibits hazardous waste <em>imports into</em> Forum Island Countries — it does not restrict <em>exports from</em> them to a non-FIC territory such as New Caledonia.</span>
+      <span class="lfr">La voie juridique pour les mouvements transfrontaliers d'huiles usagées vers la Nouvelle-Calédonie est identifiée pour chaque territoire, à des stades d'avancement différents. Le verrou principal est celui de la Nouvelle-Calédonie elle-même : le statut PTOM interdit actuellement les imports de déchets dangereux, levable par une autorisation de valorisation R9 (Haut-Commissaire / DIMENC), dont le cadre juridique est établi par la Directive-cadre déchets UE art. 21. Pour les territoires insulaires, la distinction clé : la Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires — elle ne restreint pas les exports <em>depuis</em> ceux-ci vers un territoire non-FIC comme la Nouvelle-Calédonie.</span>
     </p>
 <table class="rt">
   <thead>
@@ -546,28 +605,28 @@ td span,.table-intro,.map-note,
   <tbody>
     <tr>
       <td>Nouvelle-Calédonie<br><small class="len">Hub site</small><small class="lfr">Site du hub</small></td>
-      <td><span class="len">Hazardous waste imports prohibited under the PTOM framework. Liftable by R9 recovery authorisation (Haut-Commissaire / DIMENC), consistent with EU Waste Framework Directive Art. 21. Two-step process: <strong>pre-consent before construction</strong> (confirms legal basis for investors), then <strong>full authorisation at commissioning</strong>. Obtaining pre-consent first is the correct Basel sequencing — it de-risks the project before capital is committed.</span><span class="lfr">Importation de déchets dangereux interdite dans le cadre PTOM. Levable par autorisation de valorisation R9 (Haut-Commissaire / DIMENC), conforme à la Directive-cadre déchets UE art. 21. Processus en deux temps : <strong>pré-consentement avant construction</strong> (valide la base juridique pour les investisseurs), puis <strong>autorisation définitive à la mise en service</strong>. Obtenir le pré-consentement en premier est le séquençage Bâle standard — il réduit le risque avant tout engagement de capital.</span></td>
-      <td><span class="pill pill-pending len">R9 · 2-step</span><span class="pill pill-pending lfr">R9 · 2 étapes</span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Hazardous waste imports prohibited under the PTOM framework. Liftable by R9 recovery authorisation (Haut-Commissaire / DIMENC), consistent with EU Waste Framework Directive Art. 21. Two-step process: <strong>pre-consent before construction</strong> (confirms legal basis for investors), then <strong>full authorisation at commissioning</strong>. Obtaining pre-consent first is the correct Basel sequencing — it de-risks the project before capital is committed.</span><span class="lfr">Importation de déchets dangereux interdite dans le cadre PTOM. Levable par autorisation de valorisation R9 (Haut-Commissaire / DIMENC), conforme à la Directive-cadre déchets UE art. 21. Processus en deux temps : <strong>pré-consentement avant construction</strong> (valide la base juridique pour les investisseurs), puis <strong>autorisation définitive à la mise en service</strong>. Obtenir le pré-consentement en premier est le séquençage Bâle standard — il réduit le risque avant tout engagement de capital.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">R9 · 2-step</span><span class="pill pill-pending lfr">R9 · 2 étapes</span></td>
     </tr>
     <tr>
       <td>New Zealand</td>
-      <td><span class="len">Basel Convention Party. Bilateral agreement under Basel Art. 11, standard administrative procedure.</span><span class="lfr">Partie à la Convention de Bâle. Accord bilatéral Basel Art. 11, procédure administrative standard.</span></td>
-      <td><span class="pill pill-pending len">Bilateral required</span><span class="pill pill-pending lfr">Bilatéral requis</span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Basel Convention Party. Bilateral agreement under Basel Art. 11, standard administrative procedure.</span><span class="lfr">Partie à la Convention de Bâle. Accord bilatéral Basel Art. 11, procédure administrative standard.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">Bilateral required</span><span class="pill pill-pending lfr">Bilatéral requis</span></td>
     </tr>
     <tr>
       <td>Australia</td>
-      <td><span class="len">Hazardous Waste Act 1989 (DCCEEW). R9 export permit available. SPREP/DFAT as political lever.</span><span class="lfr">Hazardous Waste Act 1989 (DCCEEW). Permis d'export R9 disponible. SPREP/DFAT comme levier politique.</span></td>
-      <td><span class="pill pill-pending len">Permit required</span><span class="pill pill-pending lfr">Permis requis</span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Hazardous Waste Act 1989 (DCCEEW). R9 export permit available. SPREP/DFAT as political lever.</span><span class="lfr">Hazardous Waste Act 1989 (DCCEEW). Permis d'export R9 disponible. SPREP/DFAT comme levier politique.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">Permit required</span><span class="pill pill-pending lfr">Permis requis</span></td>
     </tr>
     <tr>
       <td>Fiji</td>
-      <td><span class="len">Fiji has not ratified the Basel Convention. Bilateral agreement outside standard framework required; precedent exists (Tuvalu, Tonga, Cook Islands).</span><span class="lfr">Fidji n'a pas ratifié la Convention de Bâle. Accord bilatéral hors cadre standard ; précédents existants (Tuvalu, Tonga, Îles Cook).</span></td>
-      <td><span class="pill pill-bilateral len">Bilateral (non-Basel)</span><span class="pill pill-bilateral lfr">Bilatéral (hors Bâle)</span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Fiji has not ratified the Basel Convention. Bilateral agreement outside standard framework required; precedent exists (Tuvalu, Tonga, Cook Islands).</span><span class="lfr">Fidji n'a pas ratifié la Convention de Bâle. Accord bilatéral hors cadre standard ; précédents existants (Tuvalu, Tonga, Îles Cook).</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-bilateral len">Bilateral (non-Basel)</span><span class="pill pill-bilateral lfr">Bilatéral (hors Bâle)</span></td>
     </tr>
     <tr>
       <td><span class="len">Pacific Island Countries<br><small>PNG, Solomons, Vanuatu, Samoa, Tonga, Wallis &amp; Futuna</small></span><span class="lfr">Pays insulaires du Pacifique<br><small>PNG, Salomon, Vanuatu, Samoa, Tonga, Wallis &amp; Futuna</small></span></td>
-      <td><span class="len">Waigani Convention prohibits hazardous waste imports <em>to</em> Forum Island Countries; not exports <em>from</em> them. Exports to NC (non-FIC) are permitted. France has not ratified Waigani.</span><span class="lfr">La Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires ; pas les exports <em>depuis</em> ceux-ci. Les exports vers la NC (non-FIC) sont autorisés. La France n'a pas ratifié Waigani.</span></td>
-      <td><span class="pill pill-open len">Pathway open</span><span class="pill pill-open lfr">Voie ouverte</span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Waigani Convention prohibits hazardous waste imports <em>to</em> Forum Island Countries; not exports <em>from</em> them. Exports to NC (non-FIC) are permitted. France has not ratified Waigani.</span><span class="lfr">La Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires ; pas les exports <em>depuis</em> ceux-ci. Les exports vers la NC (non-FIC) sont autorisés. La France n'a pas ratifié Waigani.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-open len">Pathway open</span><span class="pill pill-open lfr">Voie ouverte</span></td>
     </tr>
   </tbody>
 </table>
